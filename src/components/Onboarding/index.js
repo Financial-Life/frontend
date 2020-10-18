@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -58,8 +58,6 @@ const Onboarding = () => {
         navigation
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log("slide change")}
       >
         {messages.map((props) => (
           <SwiperSlide key={props.key}>

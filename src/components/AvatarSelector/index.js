@@ -19,18 +19,13 @@ const Avatar = (props) => (
     <div className="card my-5 col-sm-12">
       <div className="card-body">
         <div className="py-3">
-          <h3>{props.name}</h3>
+          <h3 className="text-uppercase text-bold mb-3">{props.name}</h3>
           <h5>{props.occupation}</h5>
           <h5>{`Edad: ${props.age} años`}</h5>
         </div>
-        <div className="py-5 col">
-          <h5>Desea comprar</h5>
-          <h3>{`${props.goalName}`}</h3>
-          <h3>{`$${props.goalAmount}`}</h3>
-        </div>
         <div>
-          <h4>{`Ingresos mensuales ${props.fixedIncome}`}</h4>
-          <h4>{`Gastos mensuales ${props.fixedExpenses}`}</h4>
+          <h4>{`Ingresos mensuales:$ ${props.fixedIncome}`}</h4>
+          <h4>{`Gastos mensuales: $${props.fixedExpenses}`}</h4>
         </div>
       </div>
     </div>
