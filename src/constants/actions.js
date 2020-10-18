@@ -1,0 +1,2 @@
+
+export const RESET_REDUCERS = "AUTH_RESET_REDUCERS";

@@ -1,0 +1,9 @@
+$theme-colors: (
+    "primary": #e54c29,
+    "secondary": darken(#e54c29, 10%),
+    "info": tomato,
+    "danger": teal
+);
+
+/* import bootstrap to set changes */
+@import "~bootstrap/scss/bootstrap";
