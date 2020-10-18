@@ -17,7 +17,7 @@ const Slide = (props) => (
 const StartGame = () => (
   <div className="swiper-slide flex-column">
     <h1>FINANCIAL LIFE</h1>
-    <Button>Iniciar juego</Button>
+    <Button className="btn-xl my-5">Iniciar juego</Button>
   </div>
 );
 const Onboarding = () => {
