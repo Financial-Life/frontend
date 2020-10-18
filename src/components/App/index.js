@@ -3,9 +3,10 @@ import { useSelector } from "react-redux";
 import "../../css/App.scss";
 
 import Onboarding from "../Onboarding";
+import AvatarSelector from "../AvatarSelector";
 
 const App = () => {
-  const { skipped } = useSelector((state) => state.onboarding);
+  const { onboarding, profile } = useSelector((state) => state);
 
   const Game = () => (
     <div className="App">
@@ -15,11 +16,13 @@ const App = () => {
       </header>
     </div>
   );
-  if (skipped) {
-    return Game;
+  if (!onboarding.skipped) {
+    return <Onboarding />;
   }
-
-  return <Onboarding />;
+  if (!profile.id) {
+    return <AvatarSelector />;
+  }
+  return <Game />;
 };
 
 export default App;

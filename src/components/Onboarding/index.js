@@ -1,7 +1,10 @@
 import React, { useEffect, useRef } from "react";
+import { useDispatch } from "react-redux";
 import Swiper from "swiper";
 
 import Button from "react-bootstrap/Button";
+
+import { startGame } from "../../actions";
 
 import Walking from "./images/walking.svg";
 import Phone from "./images/phone.svg";
@@ -14,14 +17,18 @@ const Slide = (props) => (
   </div>
 );
 
-const StartGame = () => (
+const StartGame = (props) => (
   <div className="swiper-slide flex-column">
     <h1>FINANCIAL LIFE</h1>
-    <Button className="btn-xl my-5">Iniciar juego</Button>
+    <Button onClick={props.onClick} className="btn-xl my-5">
+      Iniciar juego
+    </Button>
   </div>
 );
+
 const Onboarding = () => {
   const swiper = useRef(null);
+  const dispatch = useDispatch();
 
   const messages = [
     {
@@ -50,14 +57,14 @@ const Onboarding = () => {
   }, []);
 
   return (
-    <div className="swiper-container">
+    <div className="full-height-swiper swiper-container">
       <div className="swiper-wrapper">
         {messages.map((props) => (
           <div key={props.key} className="swiper-slide">
             <Slide {...props} />
           </div>
         ))}
-        <StartGame />
+        <StartGame onClick={() => dispatch(startGame())} />
       </div>
     </div>
   );

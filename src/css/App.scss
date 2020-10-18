@@ -27,7 +27,7 @@ body {
 
 .swiper-container {
   width: 100%;
-  height: 100vh;
+  height: 100%;
 }
 
 .swiper-slide {
@@ -35,4 +35,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.full-height-swiper {
+  height: 100vh;
+}
+
+.footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
 }

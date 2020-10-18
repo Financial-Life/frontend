@@ -8,14 +8,10 @@ const initialState = {
 const onboarding = (state = initialState, action) => {
   switch (action.type) {
     case actions.SKIP_ONBOARDING:
-      return {
-        ...state,
-        skipped: true
-      };
     case actions.START_GAME:
       return {
         ...state,
-        gameStarted: true
+        skipped: true
       };
     default:
       return state;
