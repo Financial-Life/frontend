@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
-import Swiper from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 import Button from "react-bootstrap/Button";
 
@@ -9,32 +9,33 @@ import { startGame } from "../../actions";
 import Walking from "./images/walking.svg";
 import Phone from "./images/phone.svg";
 import Hero from "./images/hero.svg";
+import Logo from "./images/logo.png";
+import Fly from "./images/fly.svg";
 
 const Slide = (props) => (
   <div>
-    <h1>{props.message}</h1>
     <img src={props.image} alt={props.message} />
+    <h3>{props.message}</h3>
   </div>
 );
 
 const StartGame = (props) => (
   <div className="swiper-slide flex-column">
-    <h1>FINANCIAL LIFE</h1>
+    <img className="my-5" src={Fly} alt={"Financial Life"} />
     <Button onClick={props.onClick} className="btn-xl my-5">
-      Iniciar juego
+      JUGAR
     </Button>
   </div>
 );
 
 const Onboarding = () => {
-  const swiper = useRef(null);
   const dispatch = useDispatch();
 
   const messages = [
     {
       key: "welcome",
       image: Walking,
-      message: "Bienvenido",
+      message: "",
     },
     {
       key: "life",
@@ -48,24 +49,27 @@ const Onboarding = () => {
     },
   ];
 
-  useEffect(() => {
-    swiper.current = new Swiper(".swiper-container", {
-      pagination: {
-        el: ".swiper-pagination",
-      },
-    });
-  }, []);
-
   return (
-    <div className="full-height-swiper swiper-container">
-      <div className="swiper-wrapper">
+    <div className="onboarding-container py-5">
+      <img className="logo py-5" src={Logo} alt={"Financial Life"} />
+      <Swiper
+        spaceBetween={50}
+        slidesPerView={1}
+        navigation
+        pagination={{ clickable: true }}
+        scrollbar={{ draggable: true }}
+        onSwiper={(swiper) => console.log(swiper)}
+        onSlideChange={() => console.log("slide change")}
+      >
         {messages.map((props) => (
-          <div key={props.key} className="swiper-slide">
+          <SwiperSlide key={props.key}>
             <Slide {...props} />
-          </div>
+          </SwiperSlide>
         ))}
-        <StartGame onClick={() => dispatch(startGame())} />
-      </div>
+        <SwiperSlide>
+          <StartGame onClick={() => dispatch(startGame())} />
+        </SwiperSlide>
+      </Swiper>
     </div>
   );
 };

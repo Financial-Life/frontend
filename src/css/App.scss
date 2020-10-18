@@ -4,7 +4,7 @@
 @import "buttons.scss";
 
 .App-header {
-  background-color: #282c34;
+  background-color: #e4fcff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -16,6 +16,7 @@
 
 body {
   margin: 0;
+  background-color: #e4fcff;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -25,20 +26,19 @@ body {
   width: 100vw;
 }
 
-.swiper-container {
-  width: 100%;
-  height: 100%;
-}
-
 .swiper-slide {
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 60%;
 }
 
-.full-height-swiper {
-  height: 100vh;
+.onboarding-container {
+  text-align: center;
+  .logo {
+    padding-top: 5em !important;
+  }
 }
 
 .footer {
